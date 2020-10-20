@@ -9,6 +9,7 @@ import (
 
 /*
 Uts namespace
+Use hosename -b xxx to change the hostname
 */
 func Uts(){
 	fmt.Println("start uts namespace")

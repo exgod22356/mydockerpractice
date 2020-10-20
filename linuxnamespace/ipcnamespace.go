@@ -9,6 +9,7 @@ import (
 
 /*
 Ipc namespace
+use ipcmk -Q and ipcs -q to check
 */
 func Ipc(){
 	cmd:=exec.Command("sh")

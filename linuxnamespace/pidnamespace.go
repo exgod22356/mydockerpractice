@@ -9,6 +9,7 @@ import (
 
 /*
 Pid namespace
+Use echo $$ to check
 */
 func Pid(){
 	cmd:=exec.Command("sh")
