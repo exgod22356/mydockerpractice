@@ -9,7 +9,7 @@ import (
 
 /*
 Network namespace  
-Use id to check the works
+Use ip addr to check the works
 */
 func Network(){
 	cmd:=exec.Command("sh")
