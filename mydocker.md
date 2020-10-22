@@ -9,8 +9,8 @@ Linux has 6 different namespace:
 **Network Namespace** :Network Namespace is used to isolate network devices and IP ports. By using namespace, we can avoid conflicts of ports. So that we can build bridge on the host between different containers to easily achieve the communication.Call this function by "CLONE_NEWNET".    
   
 ### Cgroups   
-Cgroups provide a method to limit sub-progresses' resources. Cgroups have 3 components: cgroup, subsystem, hierarchy.   
-**cgroup** is a system to manage progess groups. A cgroup has a set of progresses, and you can associate them with different subsystem configurations.   
+Cgroups provide a method to limit sub-processes' resources. Cgroups have 3 components: cgroup, subsystem, hierarchy.   
+**cgroup** is a system to manage process groups. A cgroup has a set of progresses, and you can associate them with different subsystem configurations.   
 **subsystem** is a module that could control resources. You can "apt-get install cgroup-bin" and "lssubsys" to check the subsystem your kernal could support.    
 **hierarchy** turns a string of cgroup into a tree structure. By this tree structure, Cgroups can be inherited.   
 
