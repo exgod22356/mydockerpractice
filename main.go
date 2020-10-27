@@ -1,30 +1,73 @@
 package main
 
 import (
-	"os/exec"
+	"github.com/urfave/cli"
 	"fmt"
 	"os"
-	"time"
+	_ "github.com/Sirupsen/logrus"
+	container "mydocker/container"
 )
 
-
+const usage = `mydocker is a simple container.`
 
 func main(){
-	if os.Args[0] == "/proc/self/exe" {
-		fmt.Println("restart process")
-		fmt.Println("sleep")
-		time.Sleep(time.Second*2)
+	app := cli.NewApp()
+	app.Name = "mydocker"
+	app.Usage = usage
+	app.Commands = []cli.Command{
+		initCommand,
+		runCommand,
 	}
-	fmt.Println("start process")
-	cmd := exec.Command("/proc/self/exe")
-	cmd.Stdin = os.Stdin
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	if err:=cmd.Run();err!=nil{
+	
+	if err:= app.Run(os.Args); err!=nil {
 		fmt.Println(err)
-		os.Exit(-1)
-	}else {
-		fmt.Println("??? this should not be printed")
-	}
-	cmd.Process.Wait()
+	}	
 }
+
+var runCommand = cli.Command{
+	Name : "run",
+	Usage : "Create a container",
+	Flags : []cli.Flag{
+		cli.BoolFlag{
+			Name : "ti",
+			Usage: "enable tty",
+		},		
+	},
+
+	Action: func(context *cli.Context) error {
+		fmt.Println("start runCommand")
+		if len(context.Args()) < 1 {
+			return fmt.Errorf("Missing container command")
+		}
+		cmd := context.Args().Get(0)
+		tty := context.Bool("ti")
+		Run(tty, cmd)
+		return nil
+	},
+}
+
+var initCommand = cli.Command {
+	Name : "init",
+	Usage : "Init the process",
+
+	Action: func(context *cli.Context) error {
+		fmt.Println("start initCommand")
+		fmt.Println("init come on")
+		cmd := context.Args().Get(0)
+		fmt.Printf("command %s\n",cmd)
+		err := container.RunContainerInitProcess(cmd,nil)
+		return err
+	},
+}
+
+
+func Run(tty bool, command string){
+	parent := container.NewParentProcess(tty, command)
+	if err:= parent.Start(); err!=nil {
+		fmt.Println("az")
+		fmt.Println(err)
+	}
+	parent.Wait()
+	os.Exit(-1)
+}
+
