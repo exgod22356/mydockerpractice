@@ -25,16 +25,18 @@ func RunContainerInitProcess(command string, args []string) error{
 	err = syscall.Mount("proc", "/proc","proc", uintptr(defaultMountFlags),"")
 	if err!=nil {
 		fmt.Println(err)
+		return err
 	}
 	command,err = exec.LookPath(command)
 	if(err!=nil){
 		fmt.Printf("error in finding %s \n",command)
 		fmt.Println(err)
-		return nil;
+		return err
 	}
 	argv := append([]string{command},args...)
 	if err := syscall.Exec(command, argv, os.Environ()) ; err!=nil {
 		fmt.Printf("mount error is %v\n",err)
+		return err
 	}
 	fmt.Println("mount over")
 	return nil

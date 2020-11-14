@@ -66,7 +66,7 @@ var initCommand = cli.Command {
 
 	Action: func(context *cli.Context) error {
 		fmt.Println("start initCommand")
-		cmd:=readUserCommand()
+		cmd := readUserCommand()
 		err := container.RunContainerInitProcess(cmd[0],cmd[1:])
 		return err
 	},
@@ -92,6 +92,7 @@ func Run(tty bool, commandArray []string, resConf *subsystem.ResourceConfig){
 	parent.Wait()
 }
 
+//Write the commands
 func sendInitCommand(commandArray []string, writePipe *os.File) {
 	command := strings.Join(commandArray, " ")
 	fmt.Printf("your command is %v\n",command)
@@ -99,7 +100,9 @@ func sendInitCommand(commandArray []string, writePipe *os.File) {
 	writePipe.Close()
 }
 
+//Hard code fd, to read the command
 func readUserCommand() []string {
+	fmt.Println("reading user command")
 	pipe := os.NewFile(uintptr(3),"pipe")
 	msg,err := ioutil.ReadAll(pipe)
 	if err!=nil {

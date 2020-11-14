@@ -11,8 +11,7 @@ import (
 NewParentProcess function:
 creates a child precess with namespaces, 
 run itself in the process, 
-store the command, 
-handle it to the container init process
+create a pipe and file for the Run fucntion to write
 */
 func NewParentProcess(tty bool) (*exec.Cmd, *os.File){
 	fmt.Println("New parent")
@@ -49,6 +48,10 @@ func NewParentProcess(tty bool) (*exec.Cmd, *os.File){
 	return cmd, writePipe
 }
 
+/*
+NewPipe function
+create a pipe to store the command
+*/
 func NewPipe()(*os.File, *os.File, error){
 	read, write, err := os.Pipe()
 	if err!=nil {
