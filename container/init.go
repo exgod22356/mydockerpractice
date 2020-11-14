@@ -7,7 +7,12 @@ import (
 	"os/exec"
 )
 
-
+/*
+RunContainerInitProcess function:
+mounts the essential environment, 
+read the command stored by the NewParentProcess,
+run the commands
+*/
 func RunContainerInitProcess(command string, args []string) error{
 	fmt.Printf("the command is %s\n",command)
 	fmt.Println("mount start")
@@ -28,7 +33,6 @@ func RunContainerInitProcess(command string, args []string) error{
 		return nil;
 	}
 	argv := append([]string{command},args...)
-	fmt.Println(argv)
 	if err := syscall.Exec(command, argv, os.Environ()) ; err!=nil {
 		fmt.Printf("mount error is %v\n",err)
 	}

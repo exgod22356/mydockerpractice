@@ -7,14 +7,20 @@ import (
 	"fmt"
 )
 
+/*
+NewParentProcess function:
+creates a child precess with namespaces, 
+run itself in the process, 
+store the command, 
+handle it to the container init process
+*/
 func NewParentProcess(tty bool) (*exec.Cmd, *os.File){
-	fmt.Println("new parent")
+	fmt.Println("New parent")
 	readPipe, writePipe, err := NewPipe()
 	if err!=nil {
-		fmt.Println("pipe error %v",err)
+		fmt.Printf("pipe error %v\n",err)
 		return nil,nil
 	}
-	//args := []string{"init",}
 	cmd := exec.Command("/proc/self/exe","init")
 	cmd.SysProcAttr = &syscall.SysProcAttr{
 		Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID |

@@ -72,21 +72,24 @@ var initCommand = cli.Command {
 	},
 }
 
-//Run command
+/*
+Run command
+start a CgroupManager
+set the config
+store the command
+*/
 func Run(tty bool, commandArray []string, resConf *subsystem.ResourceConfig){
 	parent, writePipe := container.NewParentProcess(tty)
 	if err:= parent.Start(); err!=nil {
 		fmt.Println(err)
+		return
 	}
 	cgroupManager := cgroupmanager.NewCgroupManager("mydocker-cgroup")
 	defer cgroupManager.Destroy()
 	cgroupManager.Set(resConf)
 	cgroupManager.Apply(parent.Process.Pid)
-
-
 	sendInitCommand(commandArray, writePipe)
 	parent.Wait()
-	os.Exit(-1)
 }
 
 func sendInitCommand(commandArray []string, writePipe *os.File) {
