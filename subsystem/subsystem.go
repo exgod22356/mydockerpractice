@@ -2,8 +2,8 @@ package subsystem
 
 type ResourceConfig struct {
 	MemoryLimit string
-	CPUShare string
-	CPUSet string
+	CPUShare    string
+	CPUSet      string
 }
 
 type Subsystem interface {
@@ -12,8 +12,6 @@ type Subsystem interface {
 	Apply(path string, pid int) error
 	Remove(path string) error
 }
-
-
 
 var (
 	SubsystemIns = []Subsystem{
