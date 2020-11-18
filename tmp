@@ -1,0 +1,237 @@
+execve("./mydocker", ["./mydocker", "run", "-ti", "sh"], 0x7ffef6d09998 /* 56 vars */) = 0
+arch_prctl(ARCH_SET_FS, 0x6c9e50)       = 0
+sched_getaffinity(0, 8192, [0, 1, 2, 3]) = 64
+openat(AT_FDCWD, "/sys/kernel/mm/transparent_hugepage/hpage_pmd_size", O_RDONLY) = 6
+read(6, "2097152\n", 20)                = 8
+close(6)                                = 0
+mmap(NULL, 262144, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd545011000
+mmap(0xc000000000, 67108864, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xc000000000
+mmap(0xc000000000, 67108864, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xc000000000
+mmap(NULL, 33554432, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd543011000
+mmap(NULL, 2164736, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd542e00000
+mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd542df0000
+mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd542de0000
+rt_sigprocmask(SIG_SETMASK, NULL, [], 8) = 0
+sigaltstack(NULL, {ss_sp=NULL, ss_flags=SS_DISABLE, ss_size=0}) = 0
+sigaltstack({ss_sp=0xc000002000, ss_flags=0, ss_size=32768}, NULL) = 0
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+gettid()                                = 16193
+rt_sigaction(SIGHUP, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGHUP, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGINT, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGINT, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGQUIT, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGQUIT, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGILL, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGILL, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGTRAP, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGTRAP, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGABRT, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGABRT, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGBUS, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGBUS, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGFPE, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGFPE, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGUSR1, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGUSR1, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGSEGV, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGSEGV, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGUSR2, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGUSR2, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGPIPE, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGPIPE, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGALRM, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGALRM, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGTERM, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGTERM, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGSTKFLT, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGSTKFLT, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGCHLD, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGCHLD, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGURG, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGURG, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGXCPU, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGXCPU, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGXFSZ, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGXFSZ, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGVTALRM, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGVTALRM, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGPROF, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGPROF, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGWINCH, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGWINCH, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGIO, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGIO, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGPWR, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGPWR, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGSYS, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGSYS, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRTMIN, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_1, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_2, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_2, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_3, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_3, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_4, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_4, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_5, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_5, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_6, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_6, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_7, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_7, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_8, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_8, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_9, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_9, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_10, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_10, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_11, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_11, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_12, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_12, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_13, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_13, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_14, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_14, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_15, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_15, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_16, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_16, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_17, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_17, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_18, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_18, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_19, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_19, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_20, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_20, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_21, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_21, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_22, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_22, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_23, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_23, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_24, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_24, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_25, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_25, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_26, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_26, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_27, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_27, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_28, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_28, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_29, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_29, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_30, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_30, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_31, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_31, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigaction(SIGRT_32, NULL, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+rt_sigaction(SIGRT_32, {sa_handler=0x459bf0, sa_mask=~[], sa_flags=SA_RESTORER|SA_ONSTACK|SA_RESTART|SA_SIGINFO, sa_restorer=0x459d20}, NULL, 8) = 0
+rt_sigprocmask(SIG_SETMASK, ~[], [], 8) = 0
+clone(child_stack=0xc000048000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM) = 16194
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+rt_sigprocmask(SIG_SETMASK, ~[], [], 8) = 0
+clone(child_stack=0xc00004a000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM) = 16195
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+futex(0x6c9f08, FUTEX_WAIT_PRIVATE, 0, NULL) = -1 EAGAIN (资源暂时不可用)
+futex(0xc000012848, FUTEX_WAKE_PRIVATE, 1) = 1
+rt_sigprocmask(SIG_SETMASK, ~[], [], 8) = 0
+clone(child_stack=0xc000044000, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM) = 16196
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+readlinkat(AT_FDCWD, "/proc/self/exe", "/media/wqy/\346\226\260\345\212\240\345\215\267/projekts/Go"..., 128) = 54
+fcntl(0, F_GETFL)                       = 0x2 (flags O_RDWR)
+futex(0xc000012848, FUTEX_WAKE_PRIVATE, 1) = 1
+mmap(NULL, 262144, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7fd542da0000
+fcntl(1, F_GETFL)                       = 0x2 (flags O_RDWR)
+fcntl(2, F_GETFL)                       = 0x2 (flags O_RDWR)
+ioctl(2, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+newfstatat(AT_FDCWD, "./mydocker", {st_mode=S_IFREG|0777, st_size=4050797, ...}, 0) = 0
+write(1, "start runCommand\n", 17)      = 17
+write(1, "New parent\n", 11)            = 11
+pipe2([6, 7], O_CLOEXEC)                = 0
+epoll_create1(EPOLL_CLOEXEC)            = 8
+epoll_ctl(8, EPOLL_CTL_ADD, 6, {EPOLLIN|EPOLLOUT|EPOLLRDHUP|EPOLLET, {u32=1121603400, u64=140553926365000}}) = 0
+fcntl(6, F_GETFL)                       = 0 (flags O_RDONLY)
+fcntl(6, F_SETFL, O_RDONLY|O_NONBLOCK)  = 0
+epoll_ctl(8, EPOLL_CTL_ADD, 7, {EPOLLIN|EPOLLOUT|EPOLLRDHUP|EPOLLET, {u32=1121603192, u64=140553926364792}}) = 0
+fcntl(7, F_GETFL)                       = 0x1 (flags O_WRONLY)
+fcntl(7, F_SETFL, O_WRONLY|O_NONBLOCK)  = 0
+getuid()                                = 0
+getuid()                                = 0
+getgid()                                = 0
+getgid()                                = 0
+fcntl(6, F_GETFL)                       = 0x800 (flags O_RDONLY|O_NONBLOCK)
+fcntl(6, F_SETFL, O_RDONLY)             = 0
+pipe2([9, 10], O_CLOEXEC)               = 0
+getpid()                                = 16193
+pipe2([11, 12], O_CLOEXEC)              = 0
+rt_sigprocmask(SIG_SETMASK, NULL, [], 8) = 0
+rt_sigprocmask(SIG_SETMASK, ~[], NULL, 8) = 0
+clone(child_stack=NULL, flags=CLONE_NEWNS|CLONE_NEWUTS|CLONE_NEWIPC|CLONE_NEWUSER|CLONE_NEWPID|CLONE_NEWNET|SIGCHLD) = 16199
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+close(11)                               = 0
+openat(AT_FDCWD, "/proc/16199/uid_map", O_RDWR) = 11
+write(11, "0 0 1\n", 6)                 = 6
+close(11)                               = 0
+openat(AT_FDCWD, "/proc/16199/setgroups", O_RDWR) = 11
+write(11, "deny", 4)                    = 4
+close(11)                               = 0
+openat(AT_FDCWD, "/proc/16199/gid_map", O_RDWR) = 11
+write(11, "0 0 1\n", 6)                 = 6
+close(11)                               = 0
+write(12, "\0\0\0\0\0\0\0\0", 8)        = 8
+close(12)                               = 0
+close(10)                               = 0
+read(9, "", 8)                          = 0
+close(9)                                = 0
+openat(AT_FDCWD, "/proc/self/mountinfo", O_RDONLY|O_CLOEXEC) = 9
+epoll_ctl(8, EPOLL_CTL_ADD, 9, {EPOLLIN|EPOLLOUT|EPOLLRDHUP|EPOLLET, {u32=1121602984, u64=140553926364584}}) = 0
+fcntl(9, F_GETFL)                       = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fcntl(9, F_SETFL, O_RDONLY|O_NONBLOCK|O_LARGEFILE) = 0
+read(9, "20 27 0:19 / /sys rw,nosuid,node"..., 4096) = 3461
+epoll_ctl(8, EPOLL_CTL_DEL, 9, 0xc00006f2dc) = 0
+close(9)                                = 0
+newfstatat(AT_FDCWD, "/sys/fs/cgroup/memory/mydocker-cgroup", 0xc000089558, 0) = -1 ENOENT (没有那个文件或目录)
+mkdirat(AT_FDCWD, "/sys/fs/cgroup/memory/mydocker-cgroup", 0755) = 0
+openat(AT_FDCWD, "/proc/self/mountinfo", O_RDONLY|O_CLOEXEC) = 9
+epoll_ctl(8, EPOLL_CTL_ADD, 9, {EPOLLIN|EPOLLOUT|EPOLLRDHUP|EPOLLET, {u32=1121602984, u64=140553926364584}}) = 0
+fcntl(9, F_GETFL)                       = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fcntl(9, F_SETFL, O_RDONLY|O_NONBLOCK|O_LARGEFILE) = 0
+read(9, "20 27 0:19 / /sys rw,nosuid,node"..., 4096) = 3461
+epoll_ctl(8, EPOLL_CTL_DEL, 9, 0xc00006f2ac) = 0
+close(9)                                = 0
+newfstatat(AT_FDCWD, "/sys/fs/cgroup/memory/mydocker-cgroup", {st_mode=S_IFDIR|0755, st_size=0, ...}, 0) = 0
+openat(AT_FDCWD, "/sys/fs/cgroup/memory/mydocker-cgroup/tasks", O_WRONLY|O_CREAT|O_TRUNC|O_CLOEXEC, 0644) = 9
+epoll_ctl(8, EPOLL_CTL_ADD, 9, {EPOLLIN|EPOLLOUT|EPOLLRDHUP|EPOLLET, {u32=1121602984, u64=140553926364584}}) = 0
+fcntl(9, F_GETFL)                       = 0x8001 (flags O_WRONLY|O_LARGEFILE)
+fcntl(9, F_SETFL, O_WRONLY|O_NONBLOCK|O_LARGEFILE) = 0
+write(9, "16199", 5)                    = 5
+epoll_ctl(8, EPOLL_CTL_DEL, 9, 0xc00006f45c) = 0
+close(9)                                = 0
+write(1, "your command is sh\n", 19)    = 19
+write(7, "sh", 2)                       = 2
+epoll_ctl(8, EPOLL_CTL_DEL, 7, 0xc00006f55c) = 0
+close(7)                                = 0
+waitid(P_PID, 16199, {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=16199, si_uid=0, si_status=1, si_utime=0, si_stime=0}, WEXITED|WNOWAIT, NULL) = 0
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=16199, si_uid=0, si_status=1, si_utime=0, si_stime=0} ---
+rt_sigreturn({mask=[]})                 = 0
+futex(0x6c9810, FUTEX_WAKE_PRIVATE, 1)  = 1
+futex(0x6c9710, FUTEX_WAKE_PRIVATE, 1)  = 1
+wait4(16199, [{WIFEXITED(s) && WEXITSTATUS(s) == 1}], 0, {ru_utime={tv_sec=0, tv_usec=0}, ru_stime={tv_sec=0, tv_usec=4582}, ...}) = 16199
+futex(0x6c9810, FUTEX_WAKE_PRIVATE, 1)  = 1
+futex(0x6c9710, FUTEX_WAKE_PRIVATE, 1)  = 1
+openat(AT_FDCWD, "/proc/self/mountinfo", O_RDONLY|O_CLOEXEC) = 7
+epoll_ctl(8, EPOLL_CTL_ADD, 7, {EPOLLIN|EPOLLOUT|EPOLLRDHUP|EPOLLET, {u32=1121603192, u64=140553926364792}}) = 0
+fcntl(7, F_GETFL)                       = 0x8000 (flags O_RDONLY|O_LARGEFILE)
+fcntl(7, F_SETFL, O_RDONLY|O_NONBLOCK|O_LARGEFILE) = 0
+read(7, "20 27 0:19 / /sys rw,nosuid,node"..., 4096) = 3461
+epoll_ctl(8, EPOLL_CTL_DEL, 7, 0xc00006f30c) = 0
+close(7)                                = 0
+newfstatat(AT_FDCWD, "/sys/fs/cgroup/memory/mydocker-cgroup", {st_mode=S_IFDIR|0755, st_size=0, ...}, 0) = 0
+unlinkat(AT_FDCWD, "/sys/fs/cgroup/memory/mydocker-cgroup", 0) = -1 EISDIR (是一个目录)
+unlinkat(AT_FDCWD, "/sys/fs/cgroup/memory/mydocker-cgroup", AT_REMOVEDIR) = 0
+exit_group(0)                           = ?
++++ exited with 0 +++

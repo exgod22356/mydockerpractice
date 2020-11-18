@@ -11,3 +11,5 @@ os.exec会开始一个新进程 exec.Command("/proc/self/exe")会执行本身，
 cmd.Start()不阻塞 cmd.Run()阻塞 cmd.Wait()阻塞   
 os.Stat 在指定路径上执行stat  
 os.IsNotExist() 如果不存在该文件  
+os.Getwd() get work directory  
+

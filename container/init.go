@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
 	"syscall"
 )
 
@@ -16,15 +17,10 @@ run the commands
 func RunContainerInitProcess(command string, args []string) error {
 	fmt.Printf("the command is %s\n", command)
 	fmt.Println("mount start")
-	err := syscall.Mount("", "/", "", syscall.MS_PRIVATE|syscall.MS_REC, "")
+
+	err := setUpMount()
 	if err != nil {
-		fmt.Println(err)
-		return err
-	}
-	defaultMountFlags := syscall.MS_NOEXEC | syscall.MS_NOSUID | syscall.MS_NODEV
-	err = syscall.Mount("proc", "/proc", "proc", uintptr(defaultMountFlags), "")
-	if err != nil {
-		fmt.Println(err)
+		fmt.Println("setUpMount error")
 		return err
 	}
 	command, err = exec.LookPath(command)
@@ -39,4 +35,63 @@ func RunContainerInitProcess(command string, args []string) error {
 		return err
 	}
 	return nil
+}
+
+func setUpMount() error {
+	pwd, err := os.Getwd()
+	if err != nil {
+		fmt.Printf("get wd error: %v\n", err)
+		return err
+	}
+
+	if err = pivotRoot(pwd); err != nil {
+		fmt.Printf("pivote root error: %v\n", err)
+		return err
+	}
+
+	err = syscall.Mount("", "/", "", syscall.MS_PRIVATE|syscall.MS_REC, "")
+	if err != nil {
+		fmt.Printf("mount / error: %v\n", err)
+		return err
+	}
+	pwd, err = os.Getwd()
+	fmt.Printf("the current wd is %v\n", pwd)
+	/*defaultMountFlags := syscall.MS_NOEXEC | syscall.MS_NOSUID | syscall.MS_NODEV
+	err = syscall.Mount("proc", "/proc", "proc", uintptr(defaultMountFlags), "")
+	if err != nil {
+		fmt.Printf("mount proc error: %v\n", err)
+		return err
+	}*/
+
+	err = syscall.Mount("tmpfs", "/dev", "tmpfs", syscall.MS_NOSUID|syscall.MS_STRICTATIME, "mode=0755")
+	if err != nil {
+		fmt.Printf("mount tmpfs error: %v\n", err)
+		return err
+	}
+	return nil
+}
+
+func pivotRoot(root string) error {
+	if err := syscall.Mount(root, root, "bind", syscall.MS_BIND|syscall.MS_REC, ""); err != nil {
+		return err
+	}
+
+	pivotDir := filepath.Join(root, ".pivot_root")
+	if err := os.Mkdir(pivotDir, 0777); err != nil {
+		return err
+	}
+
+	if err := syscall.PivotRoot(root, pivotDir); err != nil {
+		return err
+	}
+
+	if err := syscall.Chdir("/"); err != nil {
+		return err
+	}
+
+	pivotDir = filepath.Join("/", ".pivot_root")
+	if err := syscall.Unmount(pivotDir, syscall.MNT_DETACH); err != nil {
+		return err
+	}
+	return os.Remove(pivotDir)
 }
