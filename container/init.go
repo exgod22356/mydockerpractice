@@ -74,11 +74,11 @@ func setUpMount() error {
 		fmt.Println(f.Name())
 	}
 	fmt.Println("-------------------")*/
-	/*err = syscall.Mount("tmpfs", "/dev", "tmpfs", syscall.MS_NOSUID|syscall.MS_STRICTATIME, "mode=0755")
+	err = syscall.Mount("tmpfs", "/dev", "tmpfs", syscall.MS_NOSUID|syscall.MS_STRICTATIME, "mode=0755")
 	if err != nil {
 		fmt.Printf("mount tmpfs error: %v\n", err)
 		return err
-	}*/
+	}
 	return nil
 }
 
