@@ -23,7 +23,7 @@ func NewParentProcess(tty bool) (*exec.Cmd, *os.File) {
 	cmd := exec.Command("/proc/self/exe", "init")
 	cmd.SysProcAttr = &syscall.SysProcAttr{
 		Cloneflags: syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID |
-			syscall.CLONE_NEWNS | syscall.CLONE_NEWIPC | syscall.CLONE_NEWNET | syscall.CLONE_NEWUSER,
+			syscall.CLONE_NEWNS | syscall.CLONE_NEWIPC | syscall.CLONE_NEWNET, /*| syscall.CLONE_NEWUSER,
 		UidMappings: []syscall.SysProcIDMap{
 			{
 				ContainerID: syscall.Getuid(),
@@ -37,26 +37,20 @@ func NewParentProcess(tty bool) (*exec.Cmd, *os.File) {
 				HostID:      syscall.Getgid(),
 				Size:        1,
 			},
-		},
+		},*/
 	}
 	if tty {
 		cmd.Stdin = os.Stdin
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 	}
-	cmd.Dir = "/home/wqy/busybox"
+	mntURL := "/home/wqy/mnt/"
+	rootURL := "/home/wqy/"
+	if err := NewWorkSpace(rootURL, mntURL); err != nil {
+		fmt.Println(err)
+		return nil, nil
+	}
+	cmd.Dir = mntURL
 	cmd.ExtraFiles = []*os.File{readPipe}
 	return cmd, writePipe
-}
-
-/*
-NewPipe function
-create a pipe to store the command
-*/
-func NewPipe() (*os.File, *os.File, error) {
-	read, write, err := os.Pipe()
-	if err != nil {
-		return nil, nil, err
-	}
-	return read, write, nil
 }

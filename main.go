@@ -92,6 +92,13 @@ func Run(tty bool, commandArray []string, resConf *subsystem.ResourceConfig) {
 	cgroupManager.Apply(parent.Process.Pid)
 	sendInitCommand(commandArray, writePipe)
 	parent.Wait()
+	mntURL := "/home/wqy/mnt/"
+	rootURL := "/home/wqy/"
+	fmt.Println("start cleaning")
+	if err := container.DeleteWorkSpace(rootURL, mntURL); err != nil {
+		fmt.Println(err)
+	}
+	os.Exit(0)
 }
 
 //Write the commands
