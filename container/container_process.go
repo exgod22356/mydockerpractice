@@ -13,7 +13,7 @@ creates a child precess with namespaces,
 run itself in the process,
 create a pipe and file for the Run fucntion to write
 */
-func NewParentProcess(tty bool) (*exec.Cmd, *os.File) {
+func NewParentProcess(tty bool, volume string) (*exec.Cmd, *os.File) {
 	fmt.Println("New parent")
 	readPipe, writePipe, err := NewPipe()
 	if err != nil {
@@ -46,7 +46,7 @@ func NewParentProcess(tty bool) (*exec.Cmd, *os.File) {
 	}
 	mntURL := "/home/wqy/mnt/"
 	rootURL := "/home/wqy/"
-	if err := NewWorkSpace(rootURL, mntURL); err != nil {
+	if err := NewWorkSpace(rootURL, mntURL, volume); err != nil {
 		fmt.Println(err)
 		return nil, nil
 	}

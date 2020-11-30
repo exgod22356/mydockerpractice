@@ -7,6 +7,7 @@ import (
 	container "mydocker/container"
 	subsystem "mydocker/subsystem"
 	"os"
+	"os/exec"
 	"strings"
 
 	_ "github.com/Sirupsen/logrus"
@@ -22,6 +23,7 @@ func main() {
 	app.Commands = []cli.Command{
 		initCommand,
 		runCommand,
+		commitCommand,
 	}
 
 	if err := app.Run(os.Args); err != nil {
@@ -41,6 +43,10 @@ var runCommand = cli.Command{
 			Name:  "m",
 			Usage: "limit the memory",
 		},
+		cli.StringFlag{
+			Name:  "v",
+			Usage: "volume",
+		},
 	},
 
 	Action: func(context *cli.Context) error {
@@ -56,7 +62,8 @@ var runCommand = cli.Command{
 		resConf := &subsystem.ResourceConfig{
 			MemoryLimit: context.String("m"),
 		}
-		Run(tty, cmdArray, resConf)
+		volume := context.String("v")
+		Run(tty, cmdArray, resConf, volume)
 		return nil
 	},
 }
@@ -73,6 +80,23 @@ var initCommand = cli.Command{
 	},
 }
 
+var commitCommand = cli.Command{
+	Name:  "commit",
+	Usage: "commit a container image",
+	Action: func(context *cli.Context) error {
+		fmt.Println("start commit")
+		if len(context.Args()) < 1 {
+			return fmt.Errorf("missing container name")
+
+		}
+		imageName := context.Args().Get(0)
+		if err := commitContainer(imageName); err != nil {
+			return fmt.Errorf("error in commitContainer: %v", err)
+		}
+		return nil
+	},
+}
+
 /*
 Run command
 start a parentprocess with namespace
@@ -80,8 +104,8 @@ start a CgroupManager
 set the config
 store the command
 */
-func Run(tty bool, commandArray []string, resConf *subsystem.ResourceConfig) {
-	parent, writePipe := container.NewParentProcess(tty)
+func Run(tty bool, commandArray []string, resConf *subsystem.ResourceConfig, volume string) {
+	parent, writePipe := container.NewParentProcess(tty, volume)
 	if err := parent.Start(); err != nil {
 		fmt.Println(err)
 		return
@@ -95,7 +119,7 @@ func Run(tty bool, commandArray []string, resConf *subsystem.ResourceConfig) {
 	mntURL := "/home/wqy/mnt/"
 	rootURL := "/home/wqy/"
 	fmt.Println("start cleaning")
-	if err := container.DeleteWorkSpace(rootURL, mntURL); err != nil {
+	if err := container.DeleteWorkSpace(rootURL, mntURL, volume); err != nil {
 		fmt.Println(err)
 	}
 	os.Exit(0)
@@ -119,4 +143,15 @@ func readUserCommand() []string {
 	}
 	msgStr := string(msg)
 	return strings.Split(msgStr, " ")
+}
+
+func commitContainer(imageName string) error {
+	mntURL := "/home/wqy/mnt/"
+	rootURL := "/home/wqy/"
+	imageTar := rootURL + imageName + ".tar"
+	fmt.Println(imageTar)
+	if _, err := exec.Command("tar", "-czf", imageTar, "-C", mntURL, ".").CombinedOutput(); err != nil {
+		return fmt.Errorf("tar error: %v ", err)
+	}
+	return nil
 }
